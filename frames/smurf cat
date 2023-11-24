@@ -1,0 +1,24 @@
+import imageio
+import os
+import pywhatkit
+
+def create_ascii_video(image_folder, output_file):
+    images = []
+    for filename in sorted(os.listdir(image_folder)):
+        if filename.endswith(".gif"): file:///C:/Users/tijmi/Downloads/smurf-cat-walking.gif 
+            file_path = os.path.join(image_folder, filename)
+            images.append(imageio.imread(file_path))
+
+    imageio.mimsave(output_file, images, duration=0.1)
+
+def main():
+    image_folder = "path_naar_jouw_afbeeldingen_folder"
+    output_file = "output.gif"  # Je kunt het uitvoerbestandsformaat aanpassen
+
+    create_ascii_video(image_folder, output_file)
+
+    # Converteer de gegenereerde GIF naar ASCII-video
+    pywhatkit.image_to_ascii_art(output_file, "ascii_video.txt")
+
+if __name__ == "__main__":
+    main()
